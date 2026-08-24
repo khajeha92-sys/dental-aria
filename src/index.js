@@ -1,17 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { ConfigProvider } from 'antd';
+import fa_IR from 'antd/locale/fa_IR';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ConfigProvider
+      locale={fa_IR}
+      direction="rtl"
+      theme={{
+        token: {
+          colorPrimary: '#14b8a6',
+          colorPrimaryHover: '#0d9488',
+          colorPrimaryActive: '#0f766e',
+          borderRadius: 12,
+          fontFamily: "'Vazirmatn', 'Tahoma', Arial, sans-serif",
+        },
+        components: {
+          Button: {
+            borderRadius: 24,
+          },
+          Card: {
+            borderRadius: 16,
+          },
+        },
+      }}
+    >
+      <App />
+    </ConfigProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
